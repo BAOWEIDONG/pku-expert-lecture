@@ -9,8 +9,8 @@ window.PKU_DATA = {
    "name": "院士 · 大咖",
    "short": "院士 · 大咖",
    "desc": "战略级专家资源，适合大型论坛、管理层私享会",
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "count": "12 位院士 + 10 位大咖",
@@ -27,8 +27,8 @@ window.PKU_DATA = {
    "name": "专家咨询 · 主任",
    "short": "专家咨询",
    "desc": "科室主任级专家，兼顾专业深度与互动咨询",
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "count": "15 位主任级专家",
@@ -76,8 +76,8 @@ window.PKU_DATA = {
     "医学科技创新与健康管理",
     "院士面对面 · 管理层健康私享会"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -100,8 +100,8 @@ window.PKU_DATA = {
     "企业高管心血管风险管理",
     "心脏大血管疾病防治新进展"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -124,8 +124,8 @@ window.PKU_DATA = {
     "心力衰竭的早期识别",
     "冠心病防治与生活方式干预"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -148,8 +148,8 @@ window.PKU_DATA = {
     "代谢综合征的职场干预",
     "甲状腺疾病早知道"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -172,8 +172,8 @@ window.PKU_DATA = {
     "认知障碍与痴呆预防",
     "中老年神经系统健康管理"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -196,8 +196,8 @@ window.PKU_DATA = {
     "胃肠镜检查的选择与准备",
     "胆胰疾病的微创治疗"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -220,8 +220,8 @@ window.PKU_DATA = {
     "颌面部创伤的现场急救",
     "企业员工口腔保健"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -244,8 +244,8 @@ window.PKU_DATA = {
     "职场亚健康与脾胃养护",
     "失眠与情绪的中医调治"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -268,8 +268,8 @@ window.PKU_DATA = {
     "消化道肿瘤的防与治",
     "肿瘤患者心理支持"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -292,8 +292,8 @@ window.PKU_DATA = {
     "眼外伤的现场急救",
     "糖尿病视网膜病变防治"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -316,8 +316,8 @@ window.PKU_DATA = {
     "静脉血栓与肺栓塞预防",
     "呼吸系统感染防治"
    ],
-   "fee": "¥100,000 / 场",
-   "feeNote": "10万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 30,
    "leadLabel": "提前 30 天申请",
    "formats": [
@@ -340,8 +340,8 @@ window.PKU_DATA = {
     "胸痛识别与急救",
     "心血管风险分层管理"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -364,8 +364,8 @@ window.PKU_DATA = {
     "甲状腺结节科学应对",
     "骨质疏松的早防早治"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -388,8 +388,8 @@ window.PKU_DATA = {
     "骨质疏松与中老年健康",
     "糖尿病综合管理"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -412,8 +412,8 @@ window.PKU_DATA = {
     "胃肠镜体检怎么选",
     "肥胖的内镜减重治疗"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -436,8 +436,8 @@ window.PKU_DATA = {
     "胃肠道早癌筛查",
     "大肠癌遗传咨询"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -460,8 +460,8 @@ window.PKU_DATA = {
     "睡眠障碍与职场健康",
     "帕金森及运动障碍"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -484,8 +484,8 @@ window.PKU_DATA = {
     "脑卒中的黄金救治",
     "颅内肿瘤精准手术"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -508,8 +508,8 @@ window.PKU_DATA = {
     "慢阻肺与哮喘管理",
     "睡眠呼吸暂停与打鼾"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -532,8 +532,8 @@ window.PKU_DATA = {
     "慢性咳嗽的鉴别",
     "肺部结节管理"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -556,8 +556,8 @@ window.PKU_DATA = {
     "肝硬化门脉高压管理",
     "肿瘤微创治疗进展"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -580,8 +580,8 @@ window.PKU_DATA = {
     "血管病变的介入诊疗",
     "胆道梗阻的微创处理"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -604,8 +604,8 @@ window.PKU_DATA = {
     "更年期综合管理",
     "妇科肿瘤早期筛查"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -628,8 +628,8 @@ window.PKU_DATA = {
     "银屑病规范治疗",
     "职场常见皮肤病"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -652,8 +652,8 @@ window.PKU_DATA = {
     "中老年眼健康管理",
     "屈光性白内障手术"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [
@@ -676,8 +676,8 @@ window.PKU_DATA = {
     "失眠焦虑的中医治疗",
     "慢性肾病的中西医结合"
    ],
-   "fee": "¥20,000–50,000 / 场",
-   "feeNote": "2–5万元/场",
+   "fee": "按方案报价",
+   "feeNote": "按方案报价",
    "leadDays": 14,
    "leadLabel": "提前 14 天申请",
    "formats": [

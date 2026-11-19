@@ -372,9 +372,9 @@
   }
 
   function priceShort(doc) {
-    if (doc.tier === 1) return { main: '¥10万', unit: '/场' };
-    if (doc.tier === 2) return { main: '¥2–5万', unit: '/场' };
-    return { main: '面议', unit: '' };
+    if (doc.group || doc.tier === 1) return { main: '邀约制', unit: '' };
+    if (doc.tier === 2) return { main: '主任级', unit: '' };
+    return { main: '院方医生', unit: '' };
   }
 
   function homePage() {
@@ -383,7 +383,7 @@
       const cnt = t === 1 ? '12 位院士 + 10 位大咖' : t === 2 ? '15 位主任级专家' : '18 位专业医生';
       return '<button class="tier t' + t + '" data-act="tier" data-tier="' + t + '">' +
         '<div class="tl"><span class="tn">' + (t === 1 ? icon('crown') : t === 2 ? icon('steth') : icon('users')) + m.name + '</span><span class="tc">' + cnt + '</span></div>' +
-        '<div class="tr"><span class="tf">' + (t === 1 ? '¥10万/场' : t === 2 ? '¥2–5万/场' : '按方案报价') + '</span><span class="tp">' + m.leadLabel + '</span></div>' +
+        '<div class="tr"><span class="tf">' + (t === 1 ? '邀约制' : t === 2 ? '主任级' : '院方医生') + '</span><span class="tp">' + m.leadLabel + '</span></div>' +
         '</button>';
     }).join('');
     const fmts = D.formats.map(f => '<div class="fmt"><div class="fi">' + icon(f.icon) + '</div><h4>' + f.name + '</h4><p>' + f.desc + '</p></div>').join('');
@@ -533,7 +533,7 @@
         '<div class="dcard"><h3>' + icon('crown') + '首批院士成员</h3><div class="ac-list">' + rows + '</div><div class="ac-more">另有 5 位院士按活动主题与档期邀约确认</div></div>' +
         '<div class="dcard"><h3>' + icon('talk') + '可邀约方向</h3><div class="topic-chips"><span>健康中国与企业健康战略</span><span>重大疾病防治前沿</span><span>医学科技创新</span><span>院士面对面 · 管理层私享会</span></div><div class="q">' + icon('alert') + '<span>院士顾问团为邀约制资源，需提前 30 天提交需求，具体出席以院方确认为准。</span></div></div>' +
       '</div>' +
-      '<div class="bottom-bar"><div class="price"><em>参考费用</em><b>¥10万<small>/场</small></b></div><button class="btn gold" data-act="expert" data-id="academicians">预约院士顾问团 ' + icon('arrow', 'sm') + '</button></div>' +
+      '<div class="bottom-bar"><div class="price"><em>预约方式</em><b>邀约制</b></div><button class="btn gold" data-act="expert" data-id="academicians">预约院士顾问团 ' + icon('arrow', 'sm') + '</button></div>' +
       '</div>';
   }
 
@@ -562,7 +562,7 @@
       '<div class="exhero">' +
         '<div class="nav"><button data-act="back">' + icon('back') + '</button><div class="rbtns"><button data-act="sharePage">' + icon('share') + '</button></div></div>' +
         '<div class="profile">' + avatar(doc, 'bigava') + '<div class="meta"><div class="badges">' + tierBadge(doc.tier, doc.group ? '院士顾问团' : '') + '<span class="badge gold">' + doc.leadLabel + '</span></div><h1>' + esc(doc.name) + '</h1><p class="ti">' + esc(doc.title) + (doc.group ? '' : ' · ' + esc(doc.dept)) + '</p><div class="dept">' + icon('pin') + (doc.group ? '北大医疗集团 · 院士专家顾问团' : '北大医疗国际医院 · ' + esc(doc.dept)) + '</div></div></div>' +
-        '<div class="facts"><div><b>' + doc.fee.replace(' / 场', '') + '</b><span>参考费用 / 场</span></div><div><b>' + (doc.group ? '邀约制' : '院方直属') + '</b><span>专家资源</span></div><div><b>' + (doc.group ? '多学科' : doc.dept) + '</b><span>所属科室</span></div></div>' +
+        '<div class="facts"><div><b>院方直签</b><span>服务保障</span></div><div><b>' + (doc.group ? '邀约制' : '院方直属') + '</b><span>专家资源</span></div><div><b>' + (doc.group ? '多学科' : doc.dept) + '</b><span>所属科室</span></div></div>' +
       '</div>' +
       '<div class="detail-body">' +
         '<div class="dcard"><h3>' + icon('doc') + '专家擅长</h3><div class="rich">' + esc(doc.specialty) + '</div></div>' +
@@ -573,7 +573,7 @@
         '</div>' +
         '<div class="dcard"><h3>' + icon('talk') + '适用活动形式</h3><div class="topic-chips">' + doc.formats.map(f => '<span>' + f + '</span>').join('') + '</div></div>' +
       '</div>' +
-      '<div class="bottom-bar"><div class="price"><em>参考费用</em><b>' + price.main + (price.unit ? '<small>' + price.unit + '</small>' : '') + '</b></div><button class="btn gold" data-act="start-booking" data-id="' + doc.id + '" ' + (selSlot ? '' : 'disabled') + '>' + (selSlot ? '预约该专家' : '请选择时间') + ' ' + icon('arrow', 'sm') + '</button></div>' +
+      '<div class="bottom-bar"><div class="price"><em>预约服务</em><b>院方直签</b></div><button class="btn gold" data-act="start-booking" data-id="' + doc.id + '" ' + (selSlot ? '' : 'disabled') + '>' + (selSlot ? '预约该专家' : '请选择时间') + ' ' + icon('arrow', 'sm') + '</button></div>' +
       '</div>';
   }
 
@@ -590,7 +590,7 @@
     }).join('<div class="step-line"></div>');
     const head = '<div class="bk-head">' +
       '<div class="bk-expert">' + avatar(doc, 'ava') + '<div class="nm"><b>' + esc(doc.name) + '</b><span>' + esc(doc.title) + ' · ' + esc(doc.dept) + '</span></div><button class="edit" data-act="go" data-view="expert" data-id="' + doc.id + '">' + icon('edit', 'sm') + '修改</button></div>' +
-      '<div class="bk-when"><div><em>活动日期</em><b>' + (d.date ? dateCN(d.date) : '待选择') + '</b></div><div><em>时段</em><b>' + (d.slot ? SLOTS[d.slot].label + ' ' + SLOTS[d.slot].time : '待选择') + '</b></div><div><em>状态</em><b class="g">时段已锁定</b></div></div>' +
+      '<div class="bk-when"><div><em>活动日期</em><b>' + (d.date ? dateCN(d.date) : '待选择') + '</b></div><div><em>时段</em><b>' + (d.slot ? SLOTS[d.slot].label + ' ' + SLOTS[d.slot].start : '待选择') + '</b></div><div><em>状态</em><b class="g">时段已锁定</b></div></div>' +
     '</div>';
     let body = '';
     if (step === 0) {
@@ -618,7 +618,6 @@
       '</div>';
     } else {
       const price = priceShort(doc);
-      const feeText = doc.tier === 1 ? '¥100,000 / 场' : doc.tier === 2 ? '¥20,000–50,000 / 场' : '按活动方案报价';
       body = '<div class="bk-body">' +
         '<div class="summary">' +
           '<div class="sum-row"><span class="k">预约主体</span><span class="v">' + esc(d.org) + ' · ' + esc(d.clientType) + '</span></div>' +
@@ -630,7 +629,7 @@
           '<div class="sum-row"><span class="k">期望课题</span><span class="v">' + esc(d.topic) + '</span></div>' +
           '<div class="sum-row"><span class="k">联系人</span><span class="v">' + esc(d.contact) + ' · ' + esc(d.phone) + '</span></div>' +
         '</div>' +
-        '<div class="fee-box"><div class="fr"><span>参考费用</span><b>' + (doc.tier === 3 ? '按方案报价' : feeText) + '</b></div><p>费用为专家课酬参考，差旅、场地与物料另计；最终以院方回复的正式方案为准。</p></div>' +
+        '<div class="fee-box"><div class="fr"><span>费用说明</span><b>按院方方案确认</b></div><p>院方将根据活动规模、场地与差旅安排出具正式方案，具体费用以方案为准。</p></div>' +
         '<div class="notice">' + icon('alert') + '<span>提交后系统将短信提醒院方对接人，院方通常在 1 个工作日内回复课题、会议内容、流程与时间安排。</span></div>' +
         '<label class="checkline"><input type="checkbox" data-model="agree" ' + (d.agree ? 'checked' : '') + '>我已阅读并同意《专家讲座预约服务说明》，确认以上活动信息真实有效。' + (state.err && state.err.f === 'agree' ? '<span style="color:#B23B3B;display:block;margin-top:4px">' + esc(state.err.msg) + '</span>' : '') + '</label>' +
       '</div>';
@@ -642,7 +641,7 @@
       head +
       '<div class="steps">' + steps + '</div>' +
       body +
-      '<div class="bottom-bar"><div class="price"><em>参考费用</em><b>' + price.main + (price.unit ? '<small>' + price.unit + '</small>' : '') + '</b></div><button class="btn gold" data-act="bk-next">' + btnText + ' ' + icon('arrow', 'sm') + '</button></div>' +
+      '<div class="bottom-bar"><div class="price"><em>当前步骤</em><b>' + (step + 1) + ' / 3</b></div><button class="btn gold" data-act="bk-next">' + btnText + ' ' + icon('arrow', 'sm') + '</button></div>' +
     '</div>';
   }
 
