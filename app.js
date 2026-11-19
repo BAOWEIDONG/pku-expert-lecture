@@ -231,7 +231,10 @@
     return '<span class="badge ' + cls + '">' + (extra || txt) + '</span>';
   }
   function avatar(doc, cls) {
-    const ph = doc && doc.group ? '院' : (doc && doc.name ? doc.name.slice(0, 1) : '专');
+    if (doc && doc.group) {
+      return '<div class="' + cls + ' group-badge"><b>12</b><span>院士</span></div>';
+    }
+    const ph = doc && doc.name ? doc.name.slice(0, 1) : '专';
     if (doc && doc.photo) {
       return '<div class="' + cls + '"><img src="' + esc(doc.photo) + '" alt="' + esc(doc.name) + '" loading="lazy" onerror="this.remove()"></div>';
     }
@@ -371,11 +374,6 @@
     return TABS.map(t => '<button class="tab ' + (t.v === v ? 'on' : '') + '" data-act="tab" data-tab="' + t.v + '">' + icon(t.ic) + '<span>' + t.label + '</span>' + (t.v === 'profile' && unread('client') ? '<i class="tdot"></i>' : '') + '</button>').join('');
   }
 
-  function priceShort(doc) {
-    if (doc.group || doc.tier === 1) return { main: '邀约制', unit: '' };
-    if (doc.tier === 2) return { main: '主任级', unit: '' };
-    return { main: '院方医生', unit: '' };
-  }
 
   function homePage() {
     const tiers = [1, 2, 3].map(t => {
@@ -387,13 +385,9 @@
         '</button>';
     }).join('');
     const fmts = D.formats.map(f => '<div class="fmt"><div class="fi">' + icon(f.icon) + '</div><h4>' + f.name + '</h4><p>' + f.desc + '</p></div>').join('');
-    const featured = D.doctors.filter(d => d.tier <= 2).slice(0, 6).map(d => {
-      const fee = priceShort(d);
-      return '<button class="ex-mini" data-act="expert" data-id="' + d.id + '">' +
-        '<div class="top">' + avatar(d, 'ava') + '<div style="min-width:0"><h4>' + esc(d.name) + '</h4><div class="sub">' + esc(d.title) + ' · ' + esc(d.dept) + '</div></div></div>' +
-        '<div class="tag">' + tierBadge(d.tier, d.group ? '院士顾问团' : '') + '<span class="fee">' + fee.main + '</span></div>' +
-        '<div class="line">' + icon('clock') + '最近可约 ' + dateShort(firstAvailable(d)) + '</div>' +
-        '</button>';
+    const featured = ['academicians', '52080', '1025', '1080'].map(id => {
+      const d = findDoc(id);
+      return d ? exCard(d) : '';
     }).join('');
     return '<div class="page with-tab">' +
       '<section class="hero">' +
@@ -424,7 +418,9 @@
       '</section>' +
       '<section class="section">' +
         '<div class="sec-head"><h2>院方直属专家</h2><button class="more" data-act="tab" data-tab="experts">全部 44 位 ' + icon('arrow', 'sm') + '</button></div>' +
-        '<div class="ex-rail">' + featured + '</div>' +
+        '<p class="sec-sub">专家卡片展示照片或院士标识、职称、科室与擅长方向；点击卡片可查看完整简介和可约时间。</p>' +
+        '<div class="list home-ex-list">' + featured + '</div>' +
+        '<button class="btn ghost block home-ex-all" data-act="tab" data-tab="experts">浏览全部专家 ' + icon('arrow', 'sm') + '</button>' +
       '</section>' +
       '<section class="section tight">' +
         '<div class="sec-head"><h2>院方资源</h2></div>' +
@@ -469,26 +465,26 @@
     });
   }
   function exCard(d) {
-    const fee = priceShort(d);
     const soon = firstAvailable(d);
+    const detail = '<span class="fe">查看详情 ' + icon('arrow', 'sm') + '</span>';
     if (d.group) {
       return '<div class="ex-card group-card" data-act="expert" data-id="' + d.id + '">' +
         avatar(d, 'ava') +
         '<div class="body">' +
           '<div class="r1"><h3>院士专家顾问团</h3><span class="badge gold">12 位院士</span></div>' +
           '<div class="ti">中国科学院 / 中国工程院 · 多学科</div>' +
-          '<div class="sp">韩启德、庄辉、陈香美、詹启敏、乔杰、董尔丹、丁健 等 12 位院士</div>' +
-          '<div class="f1"><span class="av">' + icon('clock') + (soon ? '最近可约 ' + dateShort(soon) : '排期中') + '</span><span class="fe">' + fee.main + (fee.unit ? fee.unit : '') + '</span></div>' +
+          '<div class="sp"><b>成员</b>韩启德、庄辉、陈香美、詹启敏、乔杰、董尔丹、丁健 等 12 位院士</div>' +
+          '<div class="f1"><span class="av">' + icon('clock') + (soon ? '最近可约 ' + dateShort(soon) : '排期中') + '</span>' + detail + '</div>' +
         '</div>' +
       '</div>';
     }
     return '<div class="ex-card" data-act="expert" data-id="' + d.id + '">' +
       avatar(d, 'ava') +
       '<div class="body">' +
-        '<div class="r1"><h3>' + esc(d.name) + '</h3>' + tierBadge(d.tier, d.group ? '院士顾问团' : '') + '</div>' +
+        '<div class="r1"><h3>' + esc(d.name) + '</h3>' + tierBadge(d.tier, '') + '</div>' +
         '<div class="ti">' + esc(d.title) + ' · ' + esc(d.dept) + '</div>' +
-        '<div class="sp">' + esc(d.short) + '</div>' +
-        '<div class="f1"><span class="av">' + icon('clock') + (soon ? '最近可约 ' + dateShort(soon) : '排期中') + '</span><span class="fe">' + fee.main + (fee.unit ? fee.unit : '') + '</span></div>' +
+        '<div class="sp"><b>擅长</b>' + esc(d.short) + '</div>' +
+        '<div class="f1"><span class="av">' + icon('clock') + (soon ? '最近可约 ' + dateShort(soon) : '排期中') + '</span>' + detail + '</div>' +
       '</div>' +
     '</div>';
   }
@@ -557,7 +553,6 @@
     }).join('');
     const groupBlock = doc.group ? '<div class="dcard"><h3>' + icon('crown') + '顾问团成员<button data-act="go" data-view="academicians" style="margin-left:auto;font-size:9.5px;color:var(--brand);font-weight:400">完整名单 ' + icon('arrow', 'sm') + '</button></h3><div class="ac-list">' + D.academicians.map(a => '<div class="ac-row"><div class="av">' + a.name.slice(0, 1) + '</div><div class="nm"><b>' + a.name + '</b><span>' + a.academy + ' · ' + a.field + '</span></div></div>').join('') + '</div><div class="ac-more">另有 5 位院士按活动主题与档期确认</div></div>' : '';
     const selSlot = state.selSlot && open[state.selSlot];
-    const price = priceShort(doc);
     return '<div class="page fixed-cta">' +
       '<div class="exhero">' +
         '<div class="nav"><button data-act="back">' + icon('back') + '</button><div class="rbtns"><button data-act="sharePage">' + icon('share') + '</button></div></div>' +
@@ -617,8 +612,7 @@
         '<div class="notice">' + icon('shield') + '<span>您的联系方式仅用于本次活动的院方对接与短信提醒，不会用于其他用途。</span></div>' +
       '</div>';
     } else {
-      const price = priceShort(doc);
-      body = '<div class="bk-body">' +
+        body = '<div class="bk-body">' +
         '<div class="summary">' +
           '<div class="sum-row"><span class="k">预约主体</span><span class="v">' + esc(d.org) + ' · ' + esc(d.clientType) + '</span></div>' +
           '<div class="sum-row"><span class="k">活动形式</span><span class="v">' + esc(d.format) + '</span></div>' +
@@ -634,7 +628,6 @@
         '<label class="checkline"><input type="checkbox" data-model="agree" ' + (d.agree ? 'checked' : '') + '>我已阅读并同意《专家讲座预约服务说明》，确认以上活动信息真实有效。' + (state.err && state.err.f === 'agree' ? '<span style="color:#B23B3B;display:block;margin-top:4px">' + esc(state.err.msg) + '</span>' : '') + '</label>' +
       '</div>';
     }
-    const price = priceShort(doc);
     const btnText = step < 2 ? '下一步' : '提交预约';
     return '<div class="page fixed-cta-lg">' +
       '<div class="topbar"><button class="back" data-act="bk-back">' + icon('back') + '</button><div class="tt"><h1>预约专家讲座</h1><span>第 ' + (step + 1) + ' / 3 步</span></div></div>' +
